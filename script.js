@@ -43,7 +43,7 @@ let reset = () => {
 
   document.getElementById('guessText').textContent = 'Guess?';
   document.getElementById('clearButton').textContent = 'Clear';
-  document.getElementById('submitButton').textContent = 'Reset?';
+  document.getElementById('submitButton').textContent = 'Submit';
   document.getElementById('submitButton').onclick = function () {
     submitGuess();
   };
@@ -123,19 +123,13 @@ function isCorrect() {
 
   for (indicateMarble; indicateMarble <= doubleCorrect; indicateMarble++) {
     let marbleName = `c${turn}${indicateMarble}`;
-    console.log(marbleName);
     document.getElementById(marbleName).classList.add('white');
   }
   if (doubleCorrect == 4) {
     youWin();
   }
-  for (
-    indicateMarble;
-    indicateMarble <= doubleCorrect + singleCorrect;
-    indicateMarble++
-  ) {
+  for (indicateMarble; indicateMarble <= singleCorrect; indicateMarble++) {
     let marbleName = `c${turn}${indicateMarble}`;
-    console.log(marbleName);
     document.getElementById(marbleName).classList.add('black');
   }
   clearGuess();
